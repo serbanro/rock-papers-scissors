@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h1> Rock Paper Scissors 2021 Grand Finale</h1>
+</body>
+
+<script>
+    let variants = ["rock", "paper", "scissors"];
+
+    let computerSelection = function () {
+        
+        let choice = variants[Math.floor(Math.random() * variants.length)];
+        
+        console.log("Computer says: " + choice)
+        return choice
+    }
+
+   let playerSelection = function () { 
+       
+        let playerChoice = prompt ("What's your weapon of choice? Paper, Scissors or Rock?")
+        if (!playerChoice) {
+           window.location.reload();
+        } 
+        console.log("Human says: " + playerChoice)
+        return playerChoice.toLowerCase();
+   }
+
+       let game = function() {
+
+            let userChoice = playerSelection();
+
+        
+        if (variants.indexOf(userChoice) == -1 ) { 
+            alert(` "${userChoice}" is not an option. We're playing Rock, Paper, Scissors?!`)
+            game() }
+
+            let computerChoice = computerSelection();
+
+        if (userChoice === computerChoice) {
+            alert("Draw! Try again")
+            
+        } else if (userChoice === "paper" && computerChoice === "rock") {
+            alert("Paper? You won! Computer chose Rock")
+        } else if (userChoice === "paper" && computerChoice === "scissors") {
+            alert("Paper? You lost! Computer chose Scissors")
+        } else if (userChoice === "rock" && computerChoice === "paper") {
+            alert("Rock? You lost! Computer chose Paper")
+        } else if (userChoice === "rock" && computerChoice === "scissors") {
+            alert("Rock? You won! Computer chose Scissors")
+        } else if (userChoice === "scissors" && computerChoice === "paper") {
+            alert("Scissors? You won! Computer chose Paper")
+        } else if (userChoice === "scissors" && computerChoice === "rock") {
+            alert("Scissors? You lost! Computer chose Rock")
+        }
+        game();
+}
+        game();
+
+</script>
+</html>
