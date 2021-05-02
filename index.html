@@ -5,67 +5,56 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=, initial-scale=1.0">
     <title>Document</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+<link href="https://fonts.googleapis.com/css2?family=Alfa+Slab+One&display=swap" rel="stylesheet"> 
 </head>
 <body>
-    <h1> Rock Paper Scissors 2021 Grand Finale</h1>
-</body>
-
-<script>
-    const variants = ["rock", "paper", "scissors"];
-    let gameCount = 1;
-
-    let computerSelection = function () {
-        
-        let choice = variants[Math.floor(Math.random() * variants.length)];
-        
-        console.log("Computer says: " + choice)
-        return choice
-    }
-
-   let playerSelection = function () { 
+    <main>
+        <h1> ROCK / PAPER / SCISSORS <br> Grand Finale</h1>
+    <div class="smartphone">
+        <div class="game-area-winner">
+            <span class="game-over">Game Over!</span>
+        </div>
+        <div class="game-area">
+        <h2 class="title">Choose your weapon</h2>
+           
+            <img src="images/rock.svg" alt="rock" class="selection" id="rock" data-selection="rock">
+            <img src="images/paper.svg" alt="paper" class="selection" id="paper" data-selection="paper">
+            <img src="images/scissors.svg" alt="scissors" class="selection" id="scissors" data-selection="scissors">
        
-        let playerChoice = prompt ("What's your weapon of choice? Paper, Scissors or Rock?")
-        if (!playerChoice) {
-           window.location.reload();
-        } 
-        console.log("Human says: " + playerChoice)
-        return playerChoice.toLowerCase();
-   }
-
-       let game = function() {
-            if (gameCount > 5 ) {
-                return false;
-            } 
-
-            let userChoice = playerSelection();
-
-        
-        if (variants.indexOf(userChoice) == -1 ) { 
-            alert(` "${userChoice}" is not an option. We're playing Rock, Paper, Scissors?!`)
-            game() }
-
-            let computerChoice = computerSelection();
-
-        if (userChoice === computerChoice) {
-            alert("Draw! Try again")
             
-        } else if (userChoice === "paper" && computerChoice === "rock") {
-            alert("Paper? You won! Computer chose Rock")
-        } else if (userChoice === "paper" && computerChoice === "scissors") {
-            alert("Paper? You lost! Computer chose Scissors")
-        } else if (userChoice === "rock" && computerChoice === "paper") {
-            alert("Rock? You lost! Computer chose Paper")
-        } else if (userChoice === "rock" && computerChoice === "scissors") {
-            alert("Rock? You won! Computer chose Scissors")
-        } else if (userChoice === "scissors" && computerChoice === "paper") {
-            alert("Scissors? You won! Computer chose Paper")
-        } else if (userChoice === "scissors" && computerChoice === "rock") {
-            alert("Scissors? You lost! Computer chose Rock")
-        }
-        gameCount++;
-        game();
-}
-        game();
+    </div> <!-- closes game-area-->
+    </div> <!-- closes smartphone-->
 
-</script>
+    <div class="results">
+        <div>Human
+            
+        </div>
+        <div>
+            <span class="result-score" data-human-score>0</span> -
+        <span class="result-score" data-computer-score>0</span>
+        </div>
+        
+        <div class="data-final-column">
+           
+            Computer
+            
+        </div>
+    </div>
+
+    <!-- <div class="result-selection">rock</div>
+    <div class="result-selection winner">paper</div> -->
+    <div class="results-table">
+        <div class="last-result">
+            
+    
+        </div>
+
+    </div>
+    
+    
+    </main>
+</body>
+<script src="script.js"></script>
 </html>
